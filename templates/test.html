@@ -1,0 +1,46 @@
+<html>
+    <h5>
+        <a href="{{url_for('main')}}">Go to Main</a>
+    </h5>
+
+
+    <h5>users</h5>
+    <table>
+        <tbody>
+            {% for st in user_query %}
+            <tr>
+                <td>{{st.u_id}}</td>
+                <td>{{st.u_pw}}</td>
+                <td>{{st.u_name}}</td>
+                <td>
+                {% for f in st.u_following %}
+                    <p>f</p>
+                {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+
+
+        </tbody>
+
+    </table>
+
+
+    <h5>products1</h5>
+    <table>
+        <tbody>
+            {% for st in product_query %}
+            <tr>
+                <td>{{st.p_name}}</td>
+                <td>{{st.p_price}}</td>
+                <td>{{st.p_sale}}</td>
+                <td>{{st.p_id}}</td>
+                <td>{{st.p_info}}</td>
+                <td><a href="{{url_for('delete', p_name =st.p_name)}}">delete</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+</html>
